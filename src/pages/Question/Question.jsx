@@ -15,7 +15,7 @@ import {
 } from 'chart.js';
 import MidnightTimer from '../../components/MidnightTimer';
 
-// Register Chart.js components
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -39,7 +39,7 @@ function Question() {
 
   if (!questionData.length) return <p>Loading...</p>;
 
-  // Separate scores by category
+  
   const memoryScores = scoreHistory.filter(score => score.category === "Memory");
   const attentionScores = scoreHistory.filter(score => score.category === "Attention");
   const problemSolvingScores = scoreHistory.filter(score => score.category === "Problem Solving");
@@ -135,7 +135,7 @@ function Question() {
         Cognitive Analysis
       </h1>
 
-      {/* Add the MidnightTimer component here, before the quiz info */}
+      {/* Add the MidnightTimer*/}
       <MidnightTimer />
 
       <div className="flex flex-col text-gray-900 space-y-3 text-xs md:text-sm">
@@ -168,7 +168,7 @@ function Question() {
         {scoreHistory.length > 0 && (
           <>
             {(() => {
-              const recentScores = scoreHistory.slice(-10); // Changed from -5 to -10
+              const recentScores = scoreHistory.slice(-10);
               const average = recentScores.reduce((acc, curr) => acc + curr.score, 0) / recentScores.length;
               
               const getGrade = (avg) => {
